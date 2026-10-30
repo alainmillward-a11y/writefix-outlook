@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Scripts only from this site and Microsoft (Office.js), since your API key is kept in this
+       panel's storage. The email is read in a hidden frame that can't run scripts, and remote
+       images aren't loaded, so nothing in the email can call out. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https://appsforoffice.microsoft.com https://*.microsoft.com https://*.office.com https://*.office.net; style-src 'self' 'unsafe-inline' https:; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>WriteFix</title>
+  <link rel="stylesheet" href="ui.css">
+  <link rel="stylesheet" href="taskpane.css">
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <script src="taskpane.js" defer></script>
+</head>
+<body>
+  <header class="row">
+    <h1><span class="logo">W</span> WriteFix</h1>
+  </header>
+
+  <section>
+    <label class="field">
+      <span class="label">Model</span>
+      <select id="model"></select>
+    </label>
+    <div id="model-note" class="muted"></div>
+  </section>
+
+  <div class="actions">
+    <button id="fix" class="btn primary">Fix spelling &amp; grammar</button>
+    <button id="improve" class="btn">Improve wording</button>
+  </div>
+  <p class="muted">Checks the text you've selected, or the whole email if nothing is selected.
+    Quoted replies and your signature are left alone.</p>
+
+  <div class="status-row">
+    <span id="spinner" class="spinner" hidden></span>
+    <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+  </div>
+
+  <div id="undo-row" class="row" hidden>
+    <button id="undo" class="btn">Undo</button>
+  </div>
+
+  <section id="results" hidden>
+    <p id="summary" class="summary"></p>
+    <p class="muted">Untick any change you don't want, then apply.</p>
+    <div id="list" class="list"></div>
+    <p id="dropped" class="muted" hidden></p>
+    <div class="row">
+      <button id="apply" class="btn primary">Apply all changes</button>
+      <button id="discard" class="btn">Cancel</button>
+    </div>
+  </section>
+
+  <details id="settings">
+    <summary>Settings</summary>
+    <p id="no-key" class="warn" hidden></p>
+    <label class="field">
+      <span class="label">Claude API key</span>
+      <input id="anthropic-key" type="password" autocomplete="off" spellcheck="false" placeholder="sk-ant-…">
+    </label>
+    <p class="muted">Get one at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.</p>
+    <label class="field">
+      <span class="label">OpenAI API key (only for GPT models)</span>
+      <input id="openai-key" type="password" autocomplete="off" spellcheck="false" placeholder="sk-…">
+    </label>
+    <p class="muted">Get one at <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com</a>.</p>
+    <p id="key-status" class="muted"></p>
+    <label class="field">
+      <span class="label">Spelling</span>
+      <select id="spelling"></select>
+    </label>
+    <p class="muted">Keys are kept in Outlook on this computer only, and are sent only to the provider you choose.</p>
+  </details>
+</body>
+</html>

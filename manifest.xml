@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- WriteFix for Outlook. https://alainmillward-a11y.github.io/writefix-outlook/ and 1.0.0.0 are filled in by build.mjs. -->
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+           xsi:type="MailApp">
+  <Id>bfb752f9-da62-4a85-a3ab-74cb560c88d2</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>WriteFix</ProviderName>
+  <DefaultLocale>en-GB</DefaultLocale>
+  <DisplayName DefaultValue="WriteFix"/>
+  <Description DefaultValue="Fixes spelling and grammar, or improves the wording, of the email you're writing, using your own Claude or OpenAI API key."/>
+  <IconUrl DefaultValue="https://alainmillward-a11y.github.io/writefix-outlook/icons/icon64.png"/>
+  <HighResolutionIconUrl DefaultValue="https://alainmillward-a11y.github.io/writefix-outlook/icons/icon128.png"/>
+  <SupportUrl DefaultValue="https://alainmillward-a11y.github.io/writefix-outlook/help.html"/>
+  <AppDomains>
+    <AppDomain>https://alainmillward-a11y.github.io</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.3"/>
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemEdit">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://alainmillward-a11y.github.io/writefix-outlook/taskpane.html"/>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadWriteItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
+  </Rule>
+  <DisableEntityHighlighting>true</DisableEntityHighlighting>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.3">
+          <bt:Set Name="Mailbox"/>
+        </bt:Sets>
+      </Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="writefixComposeGroup">
+                  <Label resid="groupLabel"/>
+                  <Control xsi:type="Button" id="writefixComposeButton">
+                    <Label resid="buttonLabel"/>
+                    <Supertip>
+                      <Title resid="buttonLabel"/>
+                      <Description resid="buttonTip"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="icon16"/>
+                      <bt:Image size="32" resid="icon32"/>
+                      <bt:Image size="80" resid="icon80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="taskpaneUrl"/>
+                      <SupportsPinning>true</SupportsPinning>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images>
+          <bt:Image id="icon16" DefaultValue="https://alainmillward-a11y.github.io/writefix-outlook/icons/icon16.png"/>
+          <bt:Image id="icon32" DefaultValue="https://alainmillward-a11y.github.io/writefix-outlook/icons/icon32.png"/>
+          <bt:Image id="icon80" DefaultValue="https://alainmillward-a11y.github.io/writefix-outlook/icons/icon80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="taskpaneUrl" DefaultValue="https://alainmillward-a11y.github.io/writefix-outlook/taskpane.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="groupLabel" DefaultValue="WriteFix"/>
+          <bt:String id="buttonLabel" DefaultValue="WriteFix"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="buttonTip" DefaultValue="Check spelling and grammar, or improve the wording, of this email."/>
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>

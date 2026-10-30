@@ -1,0 +1,26 @@
+body { padding: 14px 14px 24px; }
+header { margin-bottom: 12px; }
+section { margin-bottom: 12px; }
+.field { display: block; margin: 10px 0 4px; }
+.label { display: block; font-size: 12px; font-weight: 650; color: var(--muted); margin-bottom: 4px; }
+.actions { display: grid; gap: 8px; margin: 12px 0 6px; }
+.actions .btn { width: 100%; padding: 10px 12px; }
+.status-row { display: flex; align-items: center; gap: 8px; margin: 10px 0; }
+.status { font-size: 13px; }
+.status.err { color: var(--bad); }
+.status.ok { color: var(--good); }
+.spinner { width: 16px; height: 16px; flex: none; border-radius: 50%; border: 2px solid var(--border); border-top-color: var(--accent); animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.summary { font-weight: 650; margin: 12px 0 2px; }
+.list { display: grid; gap: 6px; margin: 8px 0 12px; }
+.change { display: flex; gap: 8px; align-items: flex-start; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; cursor: pointer; }
+.change:hover { background: var(--soft); }
+.change input { margin-top: 3px; flex: none; accent-color: var(--accent); }
+.change .diff { background: none; border: 0; padding: 0; white-space: pre-wrap; }
+.change .ctx { color: var(--muted); }
+.change del { margin: 0 .2em; }
+.change ins { margin-right: .2em; }
+.change:has(input:not(:checked)) .diff { opacity: .5; }
+details { margin-top: 18px; border-top: 1px solid var(--border); padding-top: 10px; }
+summary { cursor: pointer; font-weight: 650; }
+details .warn { margin: 10px 0 0; }

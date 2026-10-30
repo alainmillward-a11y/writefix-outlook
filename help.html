@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WriteFix for Outlook</title>
+  <link rel="stylesheet" href="ui.css">
+  <style>
+    body { max-width: 680px; margin: 0 auto; padding: 24px 16px 48px; }
+    h1 { font-size: 22px; margin-bottom: 8px; }
+    h2 { margin-top: 28px; }
+    li { margin: 6px 0; }
+    code { background: var(--soft); border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <h1><span class="logo">W</span> WriteFix for Outlook</h1>
+  <p>Adds a <b>WriteFix</b> button to Outlook while you write an email. It fixes spelling and grammar,
+    or improves the wording, using your own Claude or OpenAI API key, and shows every change before it's made.
+    Works in new Outlook and classic Outlook for Windows, Outlook for Mac, and Outlook on the web.</p>
+
+  <h2>Install it (once, for all your computers)</h2>
+  <ol>
+    <li>Open <a href="https://aka.ms/olksideload">aka.ms/olksideload</a> and sign in with your work account.
+      Outlook on the web opens a box called <b>Add-ins for Outlook</b>.</li>
+    <li>On the left, click <b>My add-ins</b>.</li>
+    <li>Scroll down to <b>Custom add-ins</b>, click <b>+ Add a custom add-in</b>, then <b>Add from URL…</b></li>
+    <li>Paste this address and click <b>OK</b>, then <b>Install</b>:<br>
+      <code id="manifest-url">manifest.xml</code></li>
+    <li>Close Outlook completely and open it again. WriteFix now shows in every Outlook you sign in to.</li>
+  </ol>
+  <p class="warn">If you can't see <b>Custom add-ins</b>, or you get an error saying add-ins aren't allowed,
+    your organisation has turned this off. Send your IT admin the message below.</p>
+
+  <h2>For your IT admin</h2>
+  <p>In the <b>Microsoft 365 admin center</b>, go to <b>Settings → Integrated apps → Upload custom apps</b>.
+    Choose <b>Office Add-in</b>, then <b>Provide link to manifest file</b>, paste the address above, and deploy it
+    to the user. It can take up to 24 hours to appear. The add-in asks for <b>ReadWriteItem</b> only (the email
+    being written). Email text goes only to the AI provider the user picks (Anthropic or OpenAI), straight from
+    Outlook, using the user's own API key.</p>
+
+  <h2>Use it</h2>
+  <ol>
+    <li>Start a new email or a reply.</li>
+    <li>Click <b>WriteFix</b> on the ribbon. In new Outlook it may be under the <b>Apps</b> button or the <b>…</b> menu.</li>
+    <li>The first time, open <b>Settings</b> in the panel and paste your Claude API key.</li>
+    <li>Click <b>Fix spelling &amp; grammar</b> or <b>Improve wording</b>. Untick anything you don't want, then
+      <b>Apply</b>. <b>Undo</b> puts the email back.</li>
+    <li>Select some text first to check just that part. Quoted replies and your signature are always left alone.</li>
+    <li>Click the pin in the panel's corner to keep it open as you move between emails.</li>
+  </ol>
+  <p class="muted">Your key is kept in Outlook on each computer, so paste it once on each one.</p>
+  <script src="help.js"></script>
+</body>
+</html>
